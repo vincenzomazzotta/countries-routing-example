@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Get all countries paginate</title>
+    </head>
+    <body>
+        <form method="get" accept-charset="UTF-8" action="/changeCapital"
+            <input th:type="text" th:name="country" th:valuetype="java.String" th:value="">
+            <input th:type="text" th:name="capital" th:valuetype="java.String" th:value="">
+            <input th:type="submit" th:value="Change capital for a country!">
+        </form>
+
+
+        <p th:text="'Error: ' + ${countrieResponse.isError()} + '!'"/>
+        <p th:text="'Message: ' + ${countrieResponse.getMessage()} + '!'"/>
+        <table>
+            <th></th>
+            <tr th:each="countriesList: ${countriesResponse.getCountries()}">
+                <td th:text="${countriesList.getCountry()}">...</td>
+                <td th:text="${countriesList.getCapital()}">...</td>
+                <td>
+                    <p th:each="localCurrencieName: ${countriesList.getLocalCurrenciesNames()}">
+                        <span th:text="${localCurrencieName}">Currencies</span>
+                    </p>
+                </td>
+            </tr>
+            </tr>
+        </table>
+    </body>
+</html>

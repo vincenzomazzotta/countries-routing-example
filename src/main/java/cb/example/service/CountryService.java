@@ -1,6 +1,6 @@
 package cb.example.service;
 
-import cb.example.controller.RestCountries;
+import cb.example.controller.RestCountriesCountroller;
 import cb.example.model.CapitalCurrency;
 import cb.example.model.Country;
 import cb.example.model.response.CountriesResponse;
@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 @Service
 public class CountryService {
 
-    private static final Logger logger = LoggerFactory.getLogger(RestCountries.class);
+    private static final Logger logger = LoggerFactory.getLogger(RestCountriesCountroller.class);
 
     private final Map<String, CapitalCurrency> councurrentCountries = new ConcurrentSkipListMap<>();
 
@@ -67,8 +67,8 @@ public class CountryService {
     // page and size > 0
     public CountriesResponse getAllCountriesPaginated(int page, int size) {
         try {
-            if (page < 1 || size < 1) {
-                return new CountriesResponse(true, "Can't return page of countries because page and size must be > 0", null);
+            if (page < 1 || size < 1 || page*size > councurrentCountries.size()) {
+                return new CountriesResponse(true, "Can't return page of countries because page and size must be > 0 or page*size > " + (page*size), null);
             }
 
             int start = (page - 1) * size + 1;

@@ -3,7 +3,6 @@ package cb.example.controller;
 import cb.example.model.response.CountriesResponse;
 import cb.example.model.response.MessageResponse;
 import cb.example.service.CountryService;
-import org.apache.logging.log4j.message.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,9 @@ import javax.validation.constraints.Min;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/v1")
-public class RestCountries {
+public class RestCountriesCountroller {
 
-    private static Logger logger = LoggerFactory.getLogger(RestCountries.class);
+    private static Logger logger = LoggerFactory.getLogger(RestCountriesCountroller.class);
 
     @Autowired
     CountryService countryService;
