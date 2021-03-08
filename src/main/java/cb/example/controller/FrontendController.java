@@ -20,15 +20,21 @@ public class FrontendController {
     @Autowired
     ConsumerRest consumerRest;
 
-    @RequestMapping("/all")
-    public String getAllCountriesPaginated(@RequestParam @Min(1) int page, @RequestParam @Min(1) int size, Model model) {
-        model.addAttribute("countriesResponse", consumerRest.getAllCountriesPaginated(page, size));
+    @RequestMapping("/allCountries")
+    public String getAllCountriesPaginated(@RequestParam(required = false) @Min(1) Integer page, @RequestParam(required = false) @Min(1) Integer size, Model model) {
+        if (page != null && size != null) {
+            model.addAttribute("countriesResponse", consumerRest.getAllCountriesPaginated(page, size));
+        }
         return "getAllCountriesPaginated";
     }
 
-    @RequestMapping("/changeCapital")
-    public String changeCapital(@RequestParam String country, @RequestParam String capital, Model model) {
-        model.addAttribute("messageResponse", consumerRest.setCapital(country, capital));
+    @RequestMapping("/setCapital")
+    public String changeCapital(@RequestParam(required = false) String country, @RequestParam(required = false) String capital, Model model) {
+
+        model.addAttribute("countriesListsResponse", consumerRest.getCountryList());
+        if (country != null && capital != null) {
+            model.addAttribute("messageResponse", consumerRest.setCapital(country, capital));
+        }
         return "changeCapitalByCountry";
     }
 }

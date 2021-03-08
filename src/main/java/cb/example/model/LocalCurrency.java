@@ -1,12 +1,25 @@
 package cb.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocalCurrency {
+
+    @JsonProperty("code")
     private String code;
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("symbol")
     private String symbol;
+
+    LocalCurrency() {}
+
+    LocalCurrency(String name) {
+        this.name = name;
+    }
 
     public String getCode() {
         return code;

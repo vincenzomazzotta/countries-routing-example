@@ -10,6 +10,8 @@ public class CountryResponse extends MessageResponse implements Serializable {
     private String currency;
     private String capital;
 
+    public void CountriesResponse() {}
+
     public CountryResponse(boolean error, String message, String country, String currency, String capital){
         super.setError(error);
         super.setMessage(message);

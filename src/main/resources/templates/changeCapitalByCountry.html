@@ -3,29 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Get all countries paginate</title>
-    </head>
     <body>
-        <form method="get" accept-charset="UTF-8" action="/changeCapital"
-            <input th:type="text" th:name="country" th:valuetype="java.String" th:value="">
-            <input th:type="text" th:name="capital" th:valuetype="java.String" th:value="">
-            <input th:type="submit" th:value="Change capital for a country!">
+        <form method="get" accept-charset="UTF-8" action="/setCapital">
+            <div style="text-align: center;"><h2>Set Capital for a country</h2></div>
+            <div style="text-align: center;">
+                Country <select name="country">
+                    <option th:each="country : ${countriesListsResponse}" th:value="${country}" th:text="${country}"></option>
+                </select>
+                Capital <input th:type="text" th:name="capital" th:valuetype="java.String">
+                <input th:type="submit" th:value="Invia">
+            </div>
         </form>
-
-
-        <p th:text="'Error: ' + ${countrieResponse.isError()} + '!'"/>
-        <p th:text="'Message: ' + ${countrieResponse.getMessage()} + '!'"/>
-        <table>
-            <th></th>
-            <tr th:each="countriesList: ${countriesResponse.getCountries()}">
-                <td th:text="${countriesList.getCountry()}">...</td>
-                <td th:text="${countriesList.getCapital()}">...</td>
-                <td>
-                    <p th:each="localCurrencieName: ${countriesList.getLocalCurrenciesNames()}">
-                        <span th:text="${localCurrencieName}">Currencies</span>
-                    </p>
-                </td>
-            </tr>
-            </tr>
-        </table>
+        <br/><br/>
+        <div  style="text-align: center;" th:if="${messageResponse != null}">
+            <div  style="text-align: center;" th:if="${messageResponse.isError() == true}">
+                <p th:text="'Error: ' + ${messageResponse.isError()} + '!'"/>
+            </div>
+            <p th:text="${messageResponse.getMessage()} + '!'"/>
+        </div>
     </body>
 </html>

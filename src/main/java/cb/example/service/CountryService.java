@@ -64,6 +64,20 @@ public class CountryService {
         }
     }
 
+    public List<String> getListCountryField() {
+        try {
+            List<String> countryList = new ArrayList<String>();
+            for (Map.Entry<String, CapitalCurrency> mapCountry : councurrentCountries.entrySet()) {
+                countryList.add(mapCountry.getKey());
+            }
+
+            return countryList;
+        } catch (Exception e) {
+            logger.error(ToStringBuilder.reflectionToString(e, ToStringStyle.MULTI_LINE_STYLE));
+            return null;
+        }
+    }
+
     // page and size > 0
     public CountriesResponse getAllCountriesPaginated(int page, int size) {
         try {

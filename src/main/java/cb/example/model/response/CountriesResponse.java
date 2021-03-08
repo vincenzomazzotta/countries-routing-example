@@ -11,6 +11,8 @@ public class CountriesResponse extends MessageResponse {
 
     private List<Country> countries;
 
+    public CountriesResponse() {}
+
     public CountriesResponse(boolean error, String message, List<Country> countries) {
         super.setError(error);
         super.setMessage(message);

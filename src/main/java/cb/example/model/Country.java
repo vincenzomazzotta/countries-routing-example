@@ -20,7 +20,7 @@ public class Country {
     @JsonProperty("currencies")
     private List<String> localCurrenciesNames;
 
-    public Country() {}
+    Country() {}
 
     public Country(String country, String capital, List<String> localCurrenciesNames) {
         this.country = country;

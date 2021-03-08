@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Min;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -21,6 +22,12 @@ public class RestCountriesCountroller {
 
     @Autowired
     CountryService countryService;
+
+    @GetMapping("/getCountryList")
+    @ResponseBody
+    public ResponseEntity<List<String>> getCountryList() {
+        return new ResponseEntity<List<String>>(countryService.getListCountryField(), HttpStatus.OK);
+    }
 
     @GetMapping("/all")
     @ResponseBody
