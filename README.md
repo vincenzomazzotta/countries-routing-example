@@ -37,6 +37,7 @@ in a ConcurrentSkipListMap object (to allow to manage concurrence call and becau
 
 Here is a list of basic technologies used in the project:
 
+- Developed by JetBrain IntelliJ 2020.3 Ultimate (Standard LM) but I prefer eclipse for develop that it's free but have problems with Kotlin plugin.
 - Java 8
 - SpringBoot 2.5.0
 - Maven
