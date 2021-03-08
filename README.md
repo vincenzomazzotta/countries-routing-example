@@ -5,7 +5,7 @@
 ## Preface
 Compared to the big italian bank, the test is slightly more demanding especially because it is very long and covers many areas from the multithreading to REST API to MVC to Templating to Unit Tests to Integration ...
 It is complete.
-This application was done in about 5-6 hours during 7 and 8 March 2021 during the night as the weekend is dedicated to my daughters and is sacred.
+This application was done in about 5-6 hours during 8 March 2021 night as the weekend is dedicated to my daughters and is sacred.
 
 ## Description
 The application based on SpringBoot when start application recover data from external link by RestTemplate (spring Integration is write only xml outbound gateway) and load
