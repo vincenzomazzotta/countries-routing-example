@@ -1,6 +1,6 @@
 package cb.example.service;
 
-import cb.example.controller.RestCountriesCountroller;
+import cb.example.controller.RestCountriesController;
 import cb.example.model.CapitalCurrency;
 import cb.example.model.Country;
 import cb.example.model.response.CountriesResponse;
@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 @Service
 public class CountryService {
 
-    private static final Logger logger = LoggerFactory.getLogger(RestCountriesCountroller.class);
+    private static final Logger logger = LoggerFactory.getLogger(RestCountriesController.class);
 
     private final Map<String, CapitalCurrency> councurrentCountries = new ConcurrentSkipListMap<>();
 

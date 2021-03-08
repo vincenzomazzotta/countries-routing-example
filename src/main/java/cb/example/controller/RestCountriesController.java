@@ -16,9 +16,9 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/rest/v1")
-public class RestCountriesCountroller {
+public class RestCountriesController {
 
-    private static Logger logger = LoggerFactory.getLogger(RestCountriesCountroller.class);
+    private static Logger logger = LoggerFactory.getLogger(RestCountriesController.class);
 
     @Autowired
     CountryService countryService;

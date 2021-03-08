@@ -44,7 +44,7 @@ public class ConsumerRest {
     public CountriesResponse getAllCountriesPaginated(int page, int size) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<CountriesResponse> restCountriesResponse = restTemplate.exchange(
-                new StringBuilder(urlServerRest).append("all?page=").append(page).append("&size=").toString() + size,
+                new StringBuilder(urlServerRest).append("all?page=").append(page).append("&size=").append(size).toString(),
                 HttpMethod.GET,
                 new HttpEntity<String>(createHeaders(username, password)),
                 CountriesResponse.class);
